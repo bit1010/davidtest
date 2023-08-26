@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: david-deployment
+  labels:
+    app: david
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: david
+  template:
+    metadata:
+      labels:
+        app: david
+    spec:
+      containers:
+      - name: david
+        image: bit1010/david:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: docker-pull-secret # docker full용 secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: david
+  labels:
+    run: david
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: david
