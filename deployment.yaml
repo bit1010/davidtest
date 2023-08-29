@@ -19,19 +19,3 @@ spec:
         image: bit1010/davidtest:v2.0
         ports:
         - containerPort: 80
-      imagePullSecrets:
-      - name: docker-pull-secret # docker full용 secret
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: david
-  labels:
-    run: david
-spec:
-  type: NodePort
-  ports:
-  - port: 80
-    protocol: TCP
-  selector:
-    app: david

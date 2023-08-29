@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: david-svc
+  name: david
   labels:
     run: david
 spec:
