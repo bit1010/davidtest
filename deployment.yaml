@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: david
-        image: bit1010/david:latest
+        image: bit1010/davidtest:v2.0
         ports:
         - containerPort: 80
