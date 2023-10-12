@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
 
-    text = '안녕하세요. 인공지능 로봇 David입니다. 이미지 추가했다'
+    text = '안녕하세요. 인공지능 로봇 David입니다. 이미지 추가했다. 브랜치 추가했다'
 
     lang = request.args.get('lang', DEFAULT_LANG)
     fp = BytesIO()
