@@ -20,5 +20,9 @@ def hello_world():
 
     return render_template('index.html', image_file="david.jpg", audiodata=encoded_audio_data.decode('utf-8'))
 
+@app.route("/menu")
+def menu():
+    return render_template('menu.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', 80)
