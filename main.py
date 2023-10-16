@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
 
-    text = '안녕하세요. 인공지능 로봇 David입니다. 이미지 추가했다'
+    text = '안녕하세요. 인공지능 로봇 David입니다.'
 
     lang = request.args.get('lang', DEFAULT_LANG)
     fp = BytesIO()
@@ -19,6 +19,10 @@ def hello_world():
     encoded_audio_data = base64.b64encode(fp.getvalue())
 
     return render_template('index.html', image_file="david.jpg", audiodata=encoded_audio_data.decode('utf-8'))
+
+@app.route("/menu")
+def menu():
+    return render_template('menu.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', 80)
