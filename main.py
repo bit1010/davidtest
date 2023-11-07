@@ -24,9 +24,16 @@ def hello_world():
 def menu():
     return render_template('menu.html')
     
+<<<<<<< HEAD
 @app.route("/test1")
 def test1():
     return render_template('test1.html')
 
+=======
+@app.route("/test2")
+def test2():
+    return render_template('test2.html')
+    
+>>>>>>> 076554d35915934cc82b08603ce4346ff04872f9
 if __name__ == '__main__':
     app.run('0.0.0.0', 80)
