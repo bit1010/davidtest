@@ -23,10 +23,18 @@ def hello_world():
 @app.route("/menu")
 def menu():
     return render_template('menu.html')
+<<<<<<< HEAD
 
 @app.route("/test1")
 def test1():
     return render_template('test1.html')
 
+=======
+    
+@app.route("/test2")
+def test2():
+    return render_template('test2.html')
+    
+>>>>>>> eaa75074b82c65e082e20f1ec2cbeb6d74c369ce
 if __name__ == '__main__':
     app.run('0.0.0.0', 80)
