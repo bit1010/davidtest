@@ -1,6 +1,7 @@
 
 ## 반달커피 홈페이지
 
+오디오 출력 소스코드
 ```python
 lang = request.args.get('lang', DEFAULT_LANG)
     fp = BytesIO()
