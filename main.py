@@ -19,7 +19,13 @@ def hello_world():
     gTTS(text, "com", lang).write_to_fp(fp)
     encoded_audio_data = base64.b64encode(fp.getvalue())
 
-    return render_template('index.html', image_file="david.jpg", audiodata=encoded_audio_data.decode('utf-8'), computername=socket.gethostname())
+    if app.debug:
+        hostname='컴퓨터(인스턴스) : ' + socket.gethostname()
+    else:
+        hostname=' '
+
+    # return Response(fp.getvalue(), mimetype='audio/mpeg') # 페이지 전달없이 바로 재생
+    return render_template('index.html', image_file="david.jpg", audiodata=encoded_audio_data.decode('utf-8'), computername=hostname)
 
 @app.route("/menu")
 def menu():
