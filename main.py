@@ -4,6 +4,7 @@ import base64
 from flask import Flask, render_template
 from flask import Flask, request, Response
 from gtts import gTTS
+import socket
 
 DEFAULT_LANG = os.getenv('DEFAULT_LANG', 'ko')
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def hello_world():
     gTTS(text, "com", lang).write_to_fp(fp)
     encoded_audio_data = base64.b64encode(fp.getvalue())
 
-    return render_template('index.html', image_file="david.jpg", audiodata=encoded_audio_data.decode('utf-8'))
+    return render_template('index.html', image_file="david.jpg", audiodata=encoded_audio_data.decode('utf-8'), computername=socket.gethostname())
 
 @app.route("/menu")
 def menu():
