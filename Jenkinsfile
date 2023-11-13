@@ -10,7 +10,7 @@ pipeline {
 
 				when {
 				expression {
-					env.BUILD_NUMBER >= 10
+					env.BUILD_NUMBER == 10
 					}
 				}
 				steps {
