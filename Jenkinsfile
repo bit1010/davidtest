@@ -8,11 +8,8 @@ pipeline {
 			steps {		
 				script {
 					if (env.GIT_BRANCH == 'origin/main') { 
-						echo 'I only execute on the master branch'
+						gv.testApp()
 					} 
-					else { 
-						echo 'I execute elsewhere'
-					}
 				}	
 
 				echo "building version ${VERSION}"			
