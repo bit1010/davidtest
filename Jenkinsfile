@@ -7,7 +7,16 @@ pipeline {
 		stage("build") {
 			steps {	
 				echo "building version ${VERSION}"
-				
+
+				when {
+				expression {
+					env.BUILD_NUMBER >= 10
+					}
+				}
+				steps {
+            		echo "Running ${env.BUILD_NUMBER}"
+				}
+
 				sh 'docker build -t david:latest .'
 			}
 		}		
@@ -29,7 +38,6 @@ pipeline {
 	post {
 		always {
 			
-            echo "Running ${env.BUILD_NUMBER}"
 			echo 'building..'
 		}
 		success {
