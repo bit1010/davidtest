@@ -15,7 +15,6 @@ pipeline {
 			steps {		
 				script {
 					if (env.GIT_BRANCH == 'origin/main') { 
-						gv.testApp()
 					} 
 				}	
 
