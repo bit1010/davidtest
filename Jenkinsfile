@@ -5,11 +5,18 @@ pipeline {
 	}
 	stages {
 		stage("build") {
-			steps {					
+			steps {		
+				when {
+					env.GIT_BRANCH == 'origin/master'
+				}
+				steps {
+					echo 'building the applicaiton...'
+				}			
+				
 				echo "building version ${VERSION}"			
-					echo "Running ${env.BUILD_NUMBER}"
+				echo "Running ${env.BUILD_NUMBER}"
 
-					sh 'docker build -t david:latest .'
+				sh 'docker build -t david:latest .'
 			}
 		}		
 		stage("deploy") {
