@@ -8,7 +8,7 @@ pipeline {
 			steps {	
 				when {
 				expression {
-					env.GIT_BRANCH == 'origin/main'
+					env.GIT_BRANCH == 'main'
 					}
 				}
 				steps {
