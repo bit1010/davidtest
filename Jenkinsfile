@@ -6,6 +6,15 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {	
+				when {
+				expression {
+					env.GIT_BRANCH == 'origin/main'
+					}
+				}
+				steps {
+					echo 'building the applicaiton...'
+				}
+
 				echo "building version ${VERSION}"			
 				echo "Running ${env.BUILD_NUMBER}"
 
