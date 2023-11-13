@@ -6,12 +6,14 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {		
-				when {
-					env.GIT_BRANCH 'origin/master'
-				}
-				steps {
-					echo 'building the applicaiton...'
-				}			
+				script {
+					if (env.BRANCH_NAME == 'main') { 
+						echo 'I only execute on the master branch'
+					} 
+					else { 
+						echo 'I execute elsewhere'
+					}
+				}	
 
 				echo "building version ${VERSION}"			
 				echo "Running ${env.BUILD_NUMBER}"
