@@ -7,12 +7,12 @@ pipeline {
 		stage("build") {
 			steps {		
 				when {
-					env.GIT_BRANCH == 'origin/master'
+					env.GIT_BRANCH 'origin/master'
 				}
 				steps {
 					echo 'building the applicaiton...'
 				}			
-				
+
 				echo "building version ${VERSION}"			
 				echo "Running ${env.BUILD_NUMBER}"
 
