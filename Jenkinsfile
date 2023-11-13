@@ -4,6 +4,13 @@ pipeline {
 		VERSION = '1.0.0'
 	}
 	stages {
+		stage("init") {
+			steps {
+				script {
+					gv = load "script.groovy"
+				}
+			}
+		}
 		stage("build") {
 			steps {		
 				script {
