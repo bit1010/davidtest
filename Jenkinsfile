@@ -11,17 +11,15 @@ pipeline {
 
 				when {
 				expression {
-					env.GIT_BRANCH == 'origin/main'
+					env.GIT_BRANCH == 'origin/main' 
 					}
 				}
 				steps {
-					echo 'building the applicaiton...'
+					echo "building version ${VERSION}"			
+					echo "Running ${env.BUILD_NUMBER}"
+
+					sh 'docker build -t david:latest .'
 				}
-
-				echo "building version ${VERSION}"			
-				echo "Running ${env.BUILD_NUMBER}"
-
-				sh 'docker build -t david:latest .'
 			}
 		}		
 		stage("deploy") {
