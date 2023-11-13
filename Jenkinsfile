@@ -1,27 +1,9 @@
 pipeline {
 	agent any
-	environment {
-		VERSION = '1.0.0'
-	}
 	stages {
-		stage("init") {
-			steps {
-				script {
-					gv = load "script.groovy"
-				}
-			}
-		}
 		stage("build") {
 			steps {		
-				script {
-					if (env.GIT_BRANCH == 'origin/main') { 
-						gv.testApp()
-					} 
-				}	
-
-				echo "building version ${VERSION}"			
-				echo "Running ${env.BUILD_NUMBER}"
-
+				
 				sh 'docker build -t david:latest .'
 			}
 		}		
