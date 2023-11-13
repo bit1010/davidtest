@@ -36,12 +36,11 @@ pipeline {
 		}	
 	}	
 	post {
-		always {
-			
+		always {			
 			echo 'building..'
 		}
 		success {
-	    		echo 'success'
+	    	echo 'success'
 			
 			sh 'docker rmi bit1010/davidtest:latest'
 			sh 'docker rmi david:latest'
