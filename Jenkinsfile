@@ -1,8 +1,13 @@
 pipeline {
 	agent any
+	environment {
+		VERSION = '1.0.0'
+	}
 	stages {
 		stage("build") {
 			steps {	
+				echo "building version ${VERSION}"
+				
 				sh 'docker build -t david:latest .'
 			}
 		}		
@@ -23,6 +28,8 @@ pipeline {
 	}	
 	post {
 		always {
+			
+            echo "Running ${env.BUILD_NUMBER}"
 			echo 'building..'
 		}
 		success {
