@@ -5,10 +5,7 @@ pipeline {
 	}
 	stages {
 		stage("build") {
-			steps {	
-				
-				echo "branch ${env.GIT_BRANCH}"	
-
+			steps {					
 				when {
 				expression {
 					env.GIT_BRANCH == 'origin/main' 
